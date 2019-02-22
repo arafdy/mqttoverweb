@@ -3,7 +3,7 @@
     client = new Paho.MQTT.Client("test.mosquitto.org", Number(8081), Math.random().toString(16).replace(/[^a-z]+/g, '').substr(0, 5));
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
-    client.connect({onSuccess:onConnect});
+    client.connect({onSuccess:onConnect, useSSL: true});
 
     function onConnect() {
         console.log("Komunikasi terhubung.");
