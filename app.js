@@ -7,8 +7,8 @@
 
     function onConnect() {
         console.log("Komunikasi terhubung.");
-        client.subscribe("proyekdo/001/oxy");
-        client.subscribe("proyekdo/001/temp");
+        client.subscribe("rafdy/tester1");
+        client.subscribe("rafdy/tester2");
     }
 
     function onConnectionLost() {
@@ -16,7 +16,14 @@
     }
 
     function onMessageArrived(message) {
-        if (message.destinationName == "proyekdo/001/oxy") oxy.innerHTML = message.payloadString;
-        else if (message.destinationName == "proyekdo/001/temp") temp.innerHTML = message.payloadString;
+        if (message.destinationName == "rafdy/tester1"){ 
+            oxy.innerHTML = message.payloadString;
+            console.log(message.payloadString);
+        }
+        else 
+        if (message.destinationName == "rafdy/tester2") {
+            temp.innerHTML = message.payloadString;
+            console.log(message.payloadString);
+        }
     }
 }())
